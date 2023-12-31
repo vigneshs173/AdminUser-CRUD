@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f5fe; /* Light blue background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Change to column layout */
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2196F3; /* Material blue color */
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 98%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px; /* Adjusted padding for better readability */
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50; /* Green background color for header */
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light gray background for even rows */
+        }
+
+        a {
+            text-decoration: none;
+            padding: 8px 16px; /* Adjusted padding for buttons */
+            background-color: #2196F3; /* Material blue color */
+            color: #fff;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #1565c0; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+<h2>User List</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.salary}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.password}"></td>
+
+        <td><a th:href="@{'delete/' + ${user.id}}">Delete</a></td>
+        <td><a th:href="@{'update/' + ${user.id}}">Update</a></td>
+    </tr>
+</table>
+
+<a href="addUser">Add New User</a> </br>
+
+<a href="filter">Filter by Salary</a>
+</body>
+</html>

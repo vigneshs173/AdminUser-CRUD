@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 10;
+            padding: 0;
+        }
+
+        .dashboard-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <h1>Welcome, User!</h1>
+
+    <p>This is your personalized dashboard. Explore and enjoy!</p>
+    <!-- Add more content specific to the user's dashboard -->
+</div>
+
+<h2>Your Details</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>Username</th>
+        <th>Password</th>
+    </tr>
+    <tr>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.salary}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.password}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

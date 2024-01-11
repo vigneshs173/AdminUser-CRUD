@@ -1,5 +1,6 @@
 package com.example.TestOperation.controller;
 import com.example.TestOperation.model.User;
+import com.example.TestOperation.service.ServiceDemo;
 import com.example.TestOperation.service.UserService;
 import com.example.TestOperation.userDAO.Dao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    ServiceDemo serviceDemo;
 
     @GetMapping("userLogin")
     public String userlogin() {
@@ -38,5 +42,11 @@ public class UserController {
     public String UserSignUp(@ModelAttribute(name="insert") User user) {
         userService.insert(user);
         return "user/success";
+    }
+
+    @PostMapping("/check")
+    public void insertController()
+    {
+         serviceDemo.scheduledInsert();
     }
 }
